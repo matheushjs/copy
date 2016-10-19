@@ -65,8 +65,8 @@ void copy(char *dest, char *src){
 
 	while(ftell(d) != max){
 		aux = MIN(bufsize, max-ftell(d));
-		fread(buf, aux, 1, s);
-		fwrite(buf, aux, 1, d);
+		assert(fread(buf, 1, aux, s) != 0);
+		fwrite(buf, 1, aux, d);
 		fflush(d);
 	}
 
