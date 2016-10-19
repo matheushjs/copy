@@ -24,7 +24,7 @@ enum {
 int file_size(char *filename){
 	int ret;
 	FILE *fp = fopen(filename, "r");
-	assert(fp);
+	if(!fp) return 0;
 	fseek(fp, 0, SEEK_END);
 	ret = ftell(fp);
 	fclose(fp);
